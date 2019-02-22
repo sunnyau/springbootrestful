@@ -1,6 +1,7 @@
 package app;
 
-import app.Car;
+import app.model.Car;
+import app.model.Receipt;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +19,16 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class ControllerTest
+public class ControllerRestTemplateTest
 {
     @Autowired
     private TestRestTemplate restTemplate;
-
 
     @Test
     public void testGetMethod()
     {
         String result = this.restTemplate.getForObject("/", String.class);
-        String expected =
-                "VMRG Web Service is ready.";
+        String expected = "Web Service is ready.";
         assertEquals(expected, result);
     }
 
